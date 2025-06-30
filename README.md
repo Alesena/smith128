@@ -119,3 +119,105 @@ Obtención: Disponible en Software Center, para instalarlo hay que instalar prev
 Ante cualquier inconveniente, duda o problema durante el proceso de onboarding técnico, el nuevo integrante puede recurrir a los canales de soporte disponibles. En particular, la empresa cuenta con un canal de **Microsoft Teams** dedicado a asistencia en IT llamado _“itchat”_.
 
 Allí podrá plantear preguntas en tiempo real y obtener ayuda del equipo de soporte o de compañeros con experiencia. Se recomienda, al pedir ayuda, brindar detalles específicos (por ejemplo, adjuntar captura de pantalla del error, indicar qué paso del onboarding presentó el inconveniente, etc.) para facilitar y agilizar la respuesta.
+
+
+
+
+Desarrollo y Entrega de Sistemas | Etapas de Control (PTX Tollgates)
+
+Asegurar que los requerimientos fundamentales de ciberseguridad y controles tecnológicos se cumplan en puntos clave del ciclo de vida del proyecto.
+
+
+---
+
+Permiso para Diseñar
+
+Se ha completado la recolección de requisitos y se autoriza la asignación de recursos
+
+Controles de Ciberseguridad
+
+Completar Encuesta de Seguridad y Control de IT (en ServiceNow)
+
+Clasificación de la Aplicación asignada
+
+Clasificación de Datos asignada
+
+
+Controles Tecnológicos
+
+Aprobación completa del portafolio de proyectos
+
+Capturar APM# con asignación de propietario de activo (en ServiceNow)
+
+Asignar Estrategia de Recuperación, Objetivo de Tiempo de Recuperación, Objetivo de Punto de Recuperación
+
+Involucrar cumplimiento regulatorio del producto (aplicable a ciertos tipos de proyectos)
+
+
+
+---
+
+Permiso para Construir
+
+Validar que el diseño del sistema incluye requerimientos de ciberseguridad y control tecnológico
+
+Controles de Ciberseguridad
+
+Completar Evaluación de Impacto de Seguridad de Software (SSIA)
+
+Escaneos de Vulnerabilidades
+
+Encriptación de Datos
+
+Autenticación Fuerte (MFA)
+
+Firewall de Aplicaciones Web
+
+Registro (Logging)
+
+Aprovisionamiento Automático
+
+Seguridad en la Nube
+
+
+Controles Tecnológicos
+
+Revisión completa de arquitectura
+
+Obtener aprobación del diseño
+
+
+
+---
+
+Permiso para Operar
+
+Las pruebas se han completado y se cumplen los requerimientos de ciberseguridad y controles tecnológicos
+
+Controles de Ciberseguridad
+
+Entregar controles fundamentales:
+
+Encriptación de Datos
+
+Vulnerabilidades
+
+Autenticación Fuerte (MFA) (Nuevo)
+
+Firewall de Aplicaciones Web (Nuevo)
+
+
+
+Controles Tecnológicos
+
+Presentar los artefactos obligatorios del Documento de Diseño del Sistema (SDD)
+
+
+
+---
+
+Permiso para Operar - Etapa de Control
+
+Integrado con el proceso de Gestión de Cambios de Fiserv y el flujo de trabajo en ServiceNow
+
+Si un proyecto no cumple con los requerimientos del "Permiso para Operar", la solicitud de cambio a producción se pausa hasta que se resuelva la excepción mediante corrección o tratamiento del riesgo
