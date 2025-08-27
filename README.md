@@ -1,58 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.5">
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.4.1">
   <hashTree>
     <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="API Creación Campañas - UAT" enabled="true">
-      <stringProp name="TestPlan.comments">Plan base: token fijo + IDs numéricos consecutivos por sampler (AtomicLong en PreProcessor).</stringProp>
+      <stringProp name="TestPlan.comments">Token fijo + IDs numéricos consecutivos globales via JSR223 PreProcessor (AtomicLong). Sin View Results Tree para compatibilidad.</stringProp>
       <boolProp name="TestPlan.functional_mode">false</boolProp>
       <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
       <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
       <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
         <collectionProp name="Arguments.arguments">
-          <elementProp name="protocol" elementType="Argument">
-            <stringProp name="Argument.name">protocol</stringProp>
-            <stringProp name="Argument.value">https</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="host" elementType="Argument">
-            <stringProp name="Argument.name">host</stringProp>
-            <stringProp name="Argument.value">&lt;tu-nodo-uat&gt;</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="port" elementType="Argument">
-            <stringProp name="Argument.name">port</stringProp>
-            <stringProp name="Argument.value">443</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="createPath" elementType="Argument">
-            <stringProp name="Argument.name">createPath</stringProp>
-            <stringProp name="Argument.value">/api/campaigns/create</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="accessToken" elementType="Argument">
-            <stringProp name="Argument.name">accessToken</stringProp>
-            <stringProp name="Argument.value">&lt;PONER_TOKEN_FIJO_AQUI&gt;</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="campaignStart" elementType="Argument">
-            <stringProp name="Argument.name">campaignStart</stringProp>
-            <stringProp name="Argument.value">1000000</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="internalStart" elementType="Argument">
-            <stringProp name="Argument.name">internalStart</stringProp>
-            <stringProp name="Argument.value">5000000</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="nameDefault" elementType="Argument">
-            <stringProp name="Argument.name">nameDefault</stringProp>
-            <stringProp name="Argument.value">UAT-Carga</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="descDefault" elementType="Argument">
-            <stringProp name="Argument.name">descDefault</stringProp>
-            <stringProp name="Argument.value">Prueba performance</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
+          <elementProp name="protocol" elementType="Argument"><stringProp name="Argument.name">protocol</stringProp><stringProp name="Argument.value">https</stringProp><stringProp name="Argument.metadata">=</stringProp></elementProp>
+          <elementProp name="host" elementType="Argument"><stringProp name="Argument.name">host</stringProp><stringProp name="Argument.value">&lt;tu-nodo-uat&gt;</stringProp><stringProp name="Argument.metadata">=</stringProp></elementProp>
+          <elementProp name="port" elementType="Argument"><stringProp name="Argument.name">port</stringProp><stringProp name="Argument.value">443</stringProp><stringProp name="Argument.metadata">=</stringProp></elementProp>
+          <elementProp name="createPath" elementType="Argument"><stringProp name="Argument.name">createPath</stringProp><stringProp name="Argument.value">/api/campaigns/create</stringProp><stringProp name="Argument.metadata">=</stringProp></elementProp>
+          <elementProp name="accessToken" elementType="Argument"><stringProp name="Argument.name">accessToken</stringProp><stringProp name="Argument.value">&lt;PONER_TOKEN_FIJO_AQUI&gt;</stringProp><stringProp name="Argument.metadata">=</stringProp></elementProp>
+          <elementProp name="campaignStart" elementType="Argument"><stringProp name="Argument.name">campaignStart</stringProp><stringProp name="Argument.value">1000000</stringProp><stringProp name="Argument.metadata">=</stringProp></elementProp>
+          <elementProp name="internalStart" elementType="Argument"><stringProp name="Argument.name">internalStart</stringProp><stringProp name="Argument.value">5000000</stringProp><stringProp name="Argument.metadata">=</stringProp></elementProp>
+          <elementProp name="nameDefault" elementType="Argument"><stringProp name="Argument.name">nameDefault</stringProp><stringProp name="Argument.value">UAT-Carga</stringProp><stringProp name="Argument.metadata">=</stringProp></elementProp>
+          <elementProp name="descDefault" elementType="Argument"><stringProp name="Argument.name">descDefault</stringProp><stringProp name="Argument.value">Prueba performance</stringProp><stringProp name="Argument.metadata">=</stringProp></elementProp>
         </collectionProp>
       </elementProp>
       <stringProp name="TestPlan.user_define_classpath"></stringProp>
@@ -60,18 +24,13 @@
     <hashTree>
       <!-- HTTP Request Defaults -->
       <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults" enabled="true">
-        <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-          <collectionProp name="Arguments.arguments"/>
-        </elementProp>
+        <elementProp name="HTTPsampler.Arguments" elementType="Arguments"><collectionProp name="Arguments.arguments"/></elementProp>
         <stringProp name="HTTPSampler.domain">${host}</stringProp>
         <stringProp name="HTTPSampler.port">${port}</stringProp>
         <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
-        <stringProp name="HTTPSampler.contentEncoding"></stringProp>
         <stringProp name="HTTPSampler.path"></stringProp>
         <boolProp name="HTTPSampler.concurrentDwn">false</boolProp>
         <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
-        <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-        <stringProp name="HTTPSampler.response_timeout"></stringProp>
       </ConfigTestElement>
       <hashTree/>
       <!-- Cookie Manager -->
@@ -91,24 +50,14 @@
         </elementProp>
         <stringProp name="ThreadGroup.num_threads">50</stringProp>
         <stringProp name="ThreadGroup.ramp_time">60</stringProp>
-        <longProp name="ThreadGroup.start_time">1690000000000</longProp>
-        <longProp name="ThreadGroup.end_time">1690000000000</longProp>
         <boolProp name="ThreadGroup.scheduler">false</boolProp>
-        <stringProp name="ThreadGroup.duration"></stringProp>
-        <stringProp name="ThreadGroup.delay"></stringProp>
       </ThreadGroup>
       <hashTree>
         <!-- Header Manager (token fijo) -->
         <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
           <collectionProp name="HeaderManager.headers">
-            <elementProp name="Content-Type" elementType="Header">
-              <stringProp name="Header.name">Content-Type</stringProp>
-              <stringProp name="Header.value">application/json</stringProp>
-            </elementProp>
-            <elementProp name="Authorization" elementType="Header">
-              <stringProp name="Header.name">Authorization</stringProp>
-              <stringProp name="Header.value">Bearer ${accessToken}</stringProp>
-            </elementProp>
+            <elementProp name="Content-Type" elementType="Header"><stringProp name="Header.name">Content-Type</stringProp><stringProp name="Header.value">application/json</stringProp></elementProp>
+            <elementProp name="Authorization" elementType="Header"><stringProp name="Header.name">Authorization</stringProp><stringProp name="Header.value">Bearer ${accessToken}</stringProp></elementProp>
           </collectionProp>
         </HeaderManager>
         <hashTree/>
@@ -135,64 +84,58 @@
             <stringProp name="HTTPSampler.domain">${host}</stringProp>
             <stringProp name="HTTPSampler.port">${port}</stringProp>
             <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
-            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">${createPath}</stringProp>
             <stringProp name="HTTPSampler.method">POST</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           </HTTPSamplerProxy>
           <hashTree>
             <!-- JSR223 PreProcessor: IDs numéricos consecutivos globales -->
             <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="PreProcessor: IDs consecutivos" enabled="true">
               <stringProp name="scriptLanguage">groovy</stringProp>
-              <stringProp name="parameters"></stringProp>
-              <stringProp name="filename"></stringProp>
               <boolProp name="resetInterpreter">false</boolProp>
-              <stringProp name="script">import java.util.concurrent.atomic.AtomicLong
+              <stringProp name="script"><![CDATA[
+import java.util.concurrent.atomic.AtomicLong
 
-// Inicializa contadores atómicos globales (una vez) a partir de los starts
-def initAtomic = { key, startStr -&gt;
+// Inicializa contadores globales una vez por ejecución, a partir de campaignStart/internalStart
+def initAtomic = { key, startStr ->
     def at = props.getObject(key) as AtomicLong
     if (at == null) {
-        long base = 0L
-        try {
-            base = Long.parseLong(startStr) - 1L
-        } catch (Exception e) {
-            base = 0L
-        }
+        long base
+        try { base = Long.parseLong(startStr) - 1L } catch (Exception e) { base = 0L }
         at = new AtomicLong(base)
         props.putObject(key, at)
     }
-    return at
+    at
 }
 
-// Lee starts de variables
-def campStart = vars.get(&quot;campaignStart&quot;)
-def intStart  = vars.get(&quot;internalStart&quot;)
+def campAtomic = initAtomic('campaign.atomic', vars.get('campaignStart'))
+def intAtomic  = initAtomic('internal.atomic',  vars.get('internalStart'))
 
-def campAtomic = initAtomic(&quot;campaign.atomic&quot;, campStart)
-def intAtomic  = initAtomic(&quot;internal.atomic&quot;, intStart)
-
-// Incrementa UNA vez por request
-long nextCamp = campAtomic.incrementAndGet()
-long nextInt  = intAtomic.incrementAndGet()
-
-vars.put(&quot;campaignIdNum&quot;, Long.toString(nextCamp))
-vars.put(&quot;internalIdNum&quot;, Long.toString(nextInt))
-</stringProp>
+// Un incremento por request
+vars.put('campaignIdNum', Long.toString(campAtomic.incrementAndGet()))
+vars.put('internalIdNum', Long.toString(intAtomic.incrementAndGet()))
+]]></stringProp>
             </JSR223PreProcessor>
+            <hashTree/>
+            <!-- Response Assertion básica -->
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code 200/201" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="0">200</stringProp>
+                <stringProp name="1">201</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
             <hashTree/>
           </hashTree>
         </hashTree>
-        <!-- View Results Tree (para debug; desactivar en carga) -->
-        <ViewResultsFullVisualizer guiclass="ViewResultsFullVisualizer" testclass="ViewResultsFullVisualizer" testname="View Results Tree" enabled="true"/>
-        <hashTree/>
+        <!-- (Sin View Results Tree para evitar el error de deserialización) -->
+        <!-- Podés agregar Summary Report / Aggregate Report desde la GUI -->
       </hashTree>
     </hashTree>
   </hashTree>
