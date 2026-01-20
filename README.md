@@ -1,15 +1,49 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.4.1">
-  <hashTree>
-    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="API Creación Campañas - UAT" enabled="true">
-      <stringProp name="TestPlan.comments">Token fijo + IDs numéricos consecutivos globales via JSR223 PreProcessor (AtomicLong). Sin View Results Tree para compatibilidad.</stringProp>
-      <boolProp name="TestPlan.functional_mode">false</boolProp>
-      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
-      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
-      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
-        <collectionProp name="Arguments.arguments">
-          <elementProp name="protocol" elementType="Argument"><stringProp name="Argument.name">protocol</stringProp><stringProp name="Argument.value">https</stringProp><stringProp name="Argument.metadata">=</stringProp></elementProp>
-          <elementProp name="host" elementType="Argument"><stringProp name="Argument.name">host</stringProp><stringProp name="Argument.value">&lt;tu-nodo-uat&gt;</stringProp><stringProp name="Argument.metadata">=</stringProp></elementProp>
+          <elementProp name="host" elementType="Argument"><stringProp name="Argument.name"Claro, te dejo un reporte de error bien redactado y listo para Jira, con estructura clara y lenguaje técnico funcional. Podés ajustarlo si necesitás hacerlo más formal o más corto.
+Título
+La app mobile permite seleccionar motivos de rechazo no habilitados o sin filtrar por tipo de solicitud
+Tipo
+Bug
+Ambiente
+Web: Backoffice (gestión de motivos de rechazo)
+Mobile: Aplicación de devoluciones de órdenes
+Entorno: (Producción / QA / Staging – completar si aplica)
+Descripción
+En la aplicación web es posible crear, habilitar/deshabilitar motivos de rechazo y asociarlos a uno o más tipos de solicitud (tipos de órdenes utilizadas en la app mobile).
+Sin embargo, en la aplicación mobile, al momento de devolver una orden, solo se visualiza el nombre del motivo de rechazo, sin considerar:
+Si el motivo está habilitado o deshabilitado en la web.
+Si el motivo corresponde al tipo de solicitud de la orden.
+Como resultado, la app mobile permite seleccionar cualquier motivo de rechazo para cualquier tipo de orden, incluso aquellos que deberían estar deshabilitados o no asociados a ese tipo de solicitud.
+Pasos para reproducir
+Ingresar a la aplicación web.
+Crear o editar un motivo de rechazo:
+Deshabilitarlo o
+Asociarlo a un tipo de solicitud específico.
+Guardar los cambios.
+Ingresar a la aplicación mobile.
+Seleccionar una orden de un tipo distinto o intentar devolverla.
+Abrir el listado de motivos de rechazo.
+Resultado actual
+La app mobile muestra todos los motivos de rechazo por nombre.
+No hay validación por estado (habilitado/deshabilitado).
+No hay filtrado por tipo de solicitud.
+Se pueden seleccionar motivos incorrectos para la orden.
+Resultado esperado
+La app mobile debería:
+Mostrar solo los motivos de rechazo habilitados.
+Filtrar los motivos según el tipo de solicitud de la orden.
+Evitar la selección de motivos no válidos para ese tipo de orden.
+Impacto
+Posibles devoluciones con motivos incorrectos.
+Inconsistencia entre la configuración de la web y el comportamiento de la app mobile.
+Datos erróneos en reportes y trazabilidad de devoluciones.
+Prioridad sugerida
+Media / Alta (según impacto en operación)
+Si querés, puedo:
+Ajustarlo al formato exacto que usan en tu Jira
+Simplificar el texto
+Redactarlo en inglés
+Armar también el criterio de aceptación para cuando se solucione
+Decime 👍host</stringProp><stringProp name="Argument.value">&lt;tu-nodo-uat&gt;</stringProp><stringProp name="Argument.metadata">=</stringProp></elementProp>
           <elementProp name="port" elementType="Argument"><stringProp name="Argument.name">port</stringProp><stringProp name="Argument.value">443</stringProp><stringProp name="Argument.metadata">=</stringProp></elementProp>
           <elementProp name="createPath" elementType="Argument"><stringProp name="Argument.name">createPath</stringProp><stringProp name="Argument.value">/api/campaigns/create</stringProp><stringProp name="Argument.metadata">=</stringProp></elementProp>
           <elementProp name="accessToken" elementType="Argument"><stringProp name="Argument.name">accessToken</stringProp><stringProp name="Argument.value">&lt;PONER_TOKEN_FIJO_AQUI&gt;</stringProp><stringProp name="Argument.metadata">=</stringProp></elementProp>
